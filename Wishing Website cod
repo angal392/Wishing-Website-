@@ -1,0 +1,111 @@
+DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishing Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Wishing Website!</h1>
+        <p>Create and share your personalized wishes.</p>
+    </header>
+    <main>
+        <form id="wish-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="message">Your Wish:</label>
+            <textarea id="message" placeholder="Type your wish here..." required></textarea>
+
+            <button type="button" onclick="generateWish()">Generate Wish</button>
+        </form>
+
+        <div id="wish-preview" style="display: none;">
+            <h2>Your Wish Preview:</h2>
+            <p id="wish-output"></p>
+            <button onclick="shareWish()">Share Wish</button>
+        </div>
+    </main>
+    <footer>
+        <p>© 2024 Wishing Website. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+2. CSS File (style.css)
+css
+Copy code
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background: #4caf50;
+    color: white;
+    padding: 20px;
+}
+
+main {
+    margin: 20px auto;
+    max-width: 600px;
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #45a049;
+}
+3. JavaScript File (script.js)
+javascript
+Copy code
+function generateWish() {
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    if (name && message) {
+        const wishOutput = `Dear ${name},\n\n${message}\n\nBest Wishes,\nYour Wishing Website`;
+        document.getElementById('wish-output').innerText = wishOutput;
+        document.getElementById('wish-preview').style.display = 'block';
+    } else {
+        alert("Please fill in all fields!");
+    }
+}
+
+function shareWish() {
+    const wishText = document.getElementById('wish-output').innerText;
+    const whatsappURL = `https://wa.me/?text=${encodeURIComponent(wishText)}`;
+    window.open(whatsappURL, '_blank');
+}
