@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishing Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Wishing Website</h1>
+    </header>
+    <main>
+        <section id="ready-wishes">
+            <h2>Choose a Wish</h2>
+            <ul>
+                <li>🎉 Happy Birthday! Wishing you a wonderful year ahead!</li>
+                <li>✨ Happy New Year! May your year be filled with happiness and success!</li>
+                <li>🌟 Happy Diwali! May your life be as bright as the festival lights!</li>
+            </ul>
+        </section>
+        <section id="custom-wish">
+            <h2>Send Your Custom Wish</h2>
+            <form id="wish-form">
+                <input type="text" id="name" placeholder="Enter Your Name" required>
+                <textarea id="message" placeholder="Write your custom wish..." required></textarea>
+                <button type="button" onclick="sendWish()">Send Wish</button>
+            </form>
+            <p id="output"></p>
+        </section>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
+    
